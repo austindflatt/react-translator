@@ -34,13 +34,24 @@ export const Translate = () => {
             onChange={(e) => setInputText(e.target.value)}
             />
 
-            <Select
+            <select id="cars">
+            {languagesList.map((language) => {
+                return (
+            <option value={language.code}>{language.name}</option>
+                )
+            })}
+            </select>
+
+            {/* <Select
             placeholder="Select a language"
             size="lg"
             data={[
-            { value: 'english', label: 'English' },
+            { value: 'react', label: 'React' },
+            { value: 'ng', label: 'Angular' },
+            { value: 'svelte', label: 'Svelte' },
+            { value: 'vue', label: 'Vue' },
             ]}
-            />
+            /> */}
 
             <Textarea
             placeholder="Translation"
