@@ -4,13 +4,14 @@ import { Center, Input, Textarea, Select, Button } from '@mantine/core';
 
 export const Translate = () => {
     const [inputText, setInputText] = useState('');
+    const [detectLanguageKey, setdetectLanguageKey] = useState('');
 
     const getLanguageSource = () => {
         axios.post(`https://libretranslate.de/detect`, {
             q: inputText
         })
         .then((response) => {
-            console.log(response.data[0].language)
+            setdetectLanguageKey(response.data[0].language)
         })
     }
     
@@ -40,7 +41,7 @@ export const Translate = () => {
             required
             />
 
-            <Button color="teal" size="md">
+            <Button color="teal" size="md" onClick={getLanguageSource}>
             Translate
             </Button>
 
