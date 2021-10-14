@@ -1,9 +1,9 @@
-
+import { Translate } from "./components/Translate";
 
 function App() {
   return (
     <div className="App">
-      Hello World
+      <Translate />
     </div>
   );
 }
