@@ -4,7 +4,7 @@ import { Center, Input, Textarea, Select, Button } from '@mantine/core';
 
 export const Translate = () => {
     const [inputText, setInputText] = useState('');
-    
+
     return (
         <div>
             
@@ -13,6 +13,7 @@ export const Translate = () => {
             placeholder="Type something to translate"
             size="lg"
             required
+            onChange={(e) => setInputText(e.target.value)}
             />
 
             <Select
