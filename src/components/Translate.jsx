@@ -5,6 +5,16 @@ import { Center, Input, Textarea, Select, Button } from '@mantine/core';
 export const Translate = () => {
     const [inputText, setInputText] = useState('');
 
+    const getLanguageSource = () => {
+        axios.post(`https://libretranslate.de/detect`, {
+            q: inputText
+        })
+        .then((response) => {
+            console.log(response.data[0].language)
+        })
+    }
+    
+
     return (
         <div>
             
