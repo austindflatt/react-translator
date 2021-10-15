@@ -6,6 +6,7 @@ export const Translate = () => {
     const [inputText, setInputText] = useState('');
     const [detectLanguageKey, setdetectLanguageKey] = useState('');
     const [languagesList, setLanguagesList] = useState([])
+    const [selectedLanguageKey, setLanguageKey] = useState('')
 
     const getLanguageSource = () => {
         axios.post(`https://libretranslate.de/detect`, {
@@ -23,6 +24,10 @@ export const Translate = () => {
         })
     }, [])
 
+    const languageKey = () => {
+        setLanguageKey(selectedLanguageKey.target.value)
+    }
+
     return (
         <div>
             
@@ -34,7 +39,7 @@ export const Translate = () => {
             onChange={(e) => setInputText(e.target.value)}
             />
 
-            <select id="cars">
+            <select onChange={languageKey}>
             {languagesList.map((language) => {
                 return (
             <option value={language.code}>{language.name}</option>
